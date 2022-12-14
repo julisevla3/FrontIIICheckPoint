@@ -2,12 +2,63 @@ import { useContext, useEffect, useState } from "react";
 import styles from "./ScheduleForm.module.css";
 
 const ScheduleForm = () => {
+  const [dentista, setDentista] = useState({});
+  const [paciente, setPaciente] = useState({});
+  const [appointmentDate, setAppointmentDate] = useState("");
+
   useEffect(() => {
-    //Nesse useEffect, você vai fazer um fetch na api buscando TODOS os dentistas
-    //e pacientes e carregar os dados em 2 estados diferentes
+    getDentista();
+    getPaciente();
   }, []);
 
+  async function getDentista() {
+    try {
+      fetch(`https://dhodonto.ctdprojetos.com.br/dentista`)
+        .then((response) => response.json())
+        .then((data) => setDentista(data))
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getPaciente() {
+    try {
+      fetch(`https://dhodonto.ctdprojetos.com.br/paciente`)
+        .then((response) => response.json())
+        .then((data) => setPaciente(data.body))
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const body = {
+      paciente: {
+        matricula: paciente,
+      },
+      dentista: {
+        matricula: dentista,
+      },
+      dataHoraAgendamento: appointmentDate,
+    };
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      crossDomain:true,
+      mode: 'no-cors',
+      body: body
+    };
+
+    try {
+      fetch('https://reqres.in/api/posts', requestOptions)
+      .then(response => response.json())
+      alert("OK! Marcado!");
+    } catch (error) {
+      alert("Erro " + error.response?.data || error);
+    }
     //Nesse handlesubmit você deverá usar o preventDefault,
     //obter os dados do formulário e enviá-los no corpo da requisição 
     //para a rota da api que marca a consulta
@@ -30,10 +81,13 @@ const ScheduleForm = () => {
                 Dentist
               </label>
               <select className="form-select" name="dentist" id="dentist">
-                {/*Aqui deve ser feito um map para listar todos os dentistas*/}
-                <option key={'Matricula do dentista'} value={'Matricula do dentista'}>
-                  {`Nome Sobrenome`}
-                </option>
+                {dentista.length ? dentista.map((dentista) => (
+                  <option key={dentista.matricula} value={dentista.matricula}>
+                    {`${dentista.nome} ${dentista.sobrenome}`}
+                  </option>
+                ))
+                  : null}
+
               </select>
             </div>
             <div className="col-sm-12 col-lg-6">
@@ -41,10 +95,12 @@ const ScheduleForm = () => {
                 Patient
               </label>
               <select className="form-select" name="patient" id="patient">
-                {/*Aqui deve ser feito um map para listar todos os pacientes*/}
-                <option key={'Matricula do paciente'} value={'Matricula do paciente'}>
-                  {`Nome Sobrenome`}
-                </option>
+                {paciente.length ? paciente.map((paciente) => (
+                  <option key={paciente.matricula} value={paciente.matricula}>
+                    {`${paciente.nome} ${paciente.sobrenome}`}
+                  </option>
+                ))
+                  : null}
               </select>
             </div>
           </div>
@@ -54,6 +110,8 @@ const ScheduleForm = () => {
                 Date
               </label>
               <input
+                value={appointmentDate}
+                onChange={(event) => setAppointmentDate(event.target.value)}
                 className="form-control"
                 id="appointmentDate"
                 name="appointmentDate"
