@@ -22,6 +22,7 @@ function App() {
             <Route path="/Login" element={<LoginForm />} />
             <Route path="/Details" element={<Detail />} />
             <Route path="/Home" element={<Home />} />
+            <Route path="*" element={<h1>Not Found 404</h1>}/>
           </Routes>
         </BrowserRouter>
         <Footer />
