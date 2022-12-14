@@ -1,6 +1,6 @@
 
 import { useEffect, useState, useContext } from "react";
-import Card from "../Components/card/Card";
+import Card from "../Components/Card";
 
 import { ThemeContext } from "../providers/ThemeProvider";
 
