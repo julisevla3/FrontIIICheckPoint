@@ -1,5 +1,8 @@
 import styles from "./Form.module.css";
 
+
+
+
 const LoginForm = () => {
   const handleSubmit = (e) => {
     //Nesse handlesubmit você deverá usar o preventDefault,
@@ -26,6 +29,7 @@ const LoginForm = () => {
               name="login"
               required
             />
+            <div></div>
             <input
               className={`form-control ${styles.inputSpacing}`}
               placeholder="Password"
@@ -33,6 +37,7 @@ const LoginForm = () => {
               type="password"
               required
             />
+
             <button className="btn btn-primary" type="submit">
               Send
             </button>

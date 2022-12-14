@@ -1,33 +1,24 @@
 
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import Card from "../Components/Card";
 
-import { ThemeContext } from "../providers/ThemeProvider";
-
-
-
-
-
-
-
-
 const Home = () => {
-  const [dentistas, setDentistas] = useState([]);
-  const { theme } = useContext(ThemeContext);
 
+  const [dentista, setDentista] = useState([]);
 
-  async function getAllDentistas() {
-   // const response = await api.get("/dentistas");
-   // setDentistas(response.data.dentistas);
-
-  }
 
   useEffect(() => {
-    getAllDentistas();
+    try {
+      fetch("https://dhodonto.ctdprojetos.com.br/dentista")
+        .then((response) => response.json())
+        .then((data) => setDentista(data))
+    } catch (error) {
+      console.log(error);
+    }
 
-
-
-
+    // async function getAllDentistas() {
+    //  // const response = await api.get("/dentistas");
+    //  // setDentistas(response.data.dentistas); }
 
 
 
@@ -39,26 +30,20 @@ const Home = () => {
 
   return (
     <>
-
       <h1>Home</h1>
       <div className="card-grid container {theme}" >
+      {dentista.length ? dentista.map((dentista) => (
+            // <div className={dentista.matricula}/>
+            <Card {...dentista} key={dentista.matricula} />
+          ))
+        : null}
 
 
-        
-        {dentistas.map((dentista) => {
-          return (
 
-            <Card title="nome do medico" />
-          )
-
-        })}
-
-        <Card />
       </div>
     </>
   );
 };
-
 export default Home;
 
 

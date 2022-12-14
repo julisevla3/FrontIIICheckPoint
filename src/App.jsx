@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
@@ -10,8 +10,24 @@ import LoginForm from "./Components/LoginForm";
 import Detail from "./Routes/Detail";
 
 
+
 function App() {
+  // const location = useLocation();
   const { theme } = useContext(ThemeContext);
+
+
+
+
+
+//  const navigate = useNavigate();
+
+
+  // useEffect(() => {
+
+  //   // if(location.pathname === '/'){
+  //   //   navigate("/home");
+  //   }
+  // // });
 
   return (
     
