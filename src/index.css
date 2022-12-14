@@ -51,6 +51,9 @@ form{
 .btn-light{
   background-color: rgb(214, 214, 214);
 }
+.btn-dark{
+  background-color: rgb(16, 16, 16);
+}
 
 .card-grid{
   display: grid;

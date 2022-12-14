@@ -1,6 +1,11 @@
 import styles from "./Navbar.module.css";
+import { ThemeContext } from "../providers/ThemeProvider";
+import { useContext } from "react";
+import "../index.css";
 
 const Navbar = () => {
+  const { theme, handleTheme } = useContext(ThemeContext);
+
 
   return (
     <header className="sticky-top">
@@ -27,9 +32,12 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
+
+        <div>
+
           <div
-            className="collapse navbar-collapse justify-content-end"
-            id="navbarsExample03"
+
+             className="collapse navbar-collapse justify-content-end  "          id="navbarsExample03"  
           >
             <ul className="navbar-nav mb-2 mb-sm-0">
               <li className={`nav-item ${styles.navBarLink}`}>
@@ -54,14 +62,18 @@ const Navbar = () => {
                  Lembre-se de usar um estado no contexto para fazer essa alteração.
                  Na linha seguinte deverá ser feito um teste se a aplicação
                  está em dark mode e deverá utilizar o icone ☀ ou 🌙 e btn-dark ou btn-light*/}
-                <button
-                  className={`btn btn-light${styles.btnStyle
-                    }`}
+
+                <button onClick={handleTheme}
+                  
                 >
-                  ☀ 🌙{" "}
+                  {theme === 'light' ? '🌙' : '☀'} {" "}
                 </button>
+
+
+
               </li>
             </ul>
+          </div>
           </div>
         </div>
       </nav>
