@@ -3,7 +3,7 @@ import ScheduleFormModal from "./ScheduleFormModal";
 import styles from "./DetailCard.module.css";
 
 const DetailCard = (props) => {
-  
+  const {matricula = "-", nome = "-", sobrenome = "-", usuario = "-"} = props
   
     //Nesse useEffect, você vai fazer um fetch na api passando o 
     //id do dentista que está vindo do react-router e carregar os dados em algum estado
@@ -12,7 +12,7 @@ const DetailCard = (props) => {
     //As instruções que estão com {''} precisam ser 
     //substituídas com as informações que vem da api
     <>
-      <h1>Detail about Dentist {props.nome} </h1>
+      <h1>Detail about Dentist {nome} </h1>
       <section className="card col-sm-12 col-lg-6 container">
         {/* //Na linha seguinte deverá ser feito um teste se a aplicação
         // está em dark mode e deverá utilizar o css correto */}
@@ -28,12 +28,12 @@ const DetailCard = (props) => {
           </div>
           <div className="col-sm-12 col-lg-6">
             <ul className="list-group">
-              <li className="list-group-item">Nome: {props.nome}</li>
+              <li className="list-group-item">Nome: {nome}</li>
               <li className="list-group-item">
-                Sobrenome: {props.sobrenome}
+                Sobrenome: {sobrenome}
               </li>
               <li className="list-group-item">
-                Usuário: {props.usuario.username}
+                Usuário: {usuario.username}
               </li>
             </ul>
             <div className="text-center">
