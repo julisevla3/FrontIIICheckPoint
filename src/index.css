@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+
 main{
   min-height: calc(100vh - 292px);
 }
@@ -23,6 +24,7 @@ h1{
 
 .navbar-nav{
   align-items: center;
+  color: rgb(136, 136, 136);
 }
 
 .row{
