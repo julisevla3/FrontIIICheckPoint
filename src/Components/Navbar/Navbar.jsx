@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.css";
-import { ThemeContext } from "../providers/ThemeProvider";
+import { ThemeContext } from "../../providers/ThemeProvider";
 import { useContext } from "react";
-import "../index.css";
+
 
 const Navbar = () => {
   const { theme, handleTheme } = useContext(ThemeContext);
