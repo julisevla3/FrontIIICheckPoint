@@ -1,35 +1,31 @@
 import DetailCard from "../Components/DetailCard";
-// import { useParams } from "react-router-dom";
-// import axios from "axios";
-// import { useState } from "react";
-// import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Detail = () => {
-// //   const {idMedico} = useParams();
+  const { matricula } = useParams();
+  const [dentista, setDentista] = useState({});
 
+  useEffect(() => {
+    getDentista();
+  }, []);
 
-//   const [medico, setMedico] = useState();
-
-// useEffect(() => {
-//   getDetailMedico();
-// },[]);
-
-
-
-// async function getDetailMedico(){
-//   const response = await axios.get(
-//     "https://dhodonto.ctdprojetos.com.br/dentista" + idMedico
-//     );
-
-//     console.log(response.data);
-// 
-
+  async function getDentista() {
+    try {
+      fetch(`https://dhodonto.ctdprojetos.com.br/dentista?matricula=${matricula}`)
+        .then((response) => response.json())
+        .then((data) => setDentista(data))
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 
   return (
     <>
-      <DetailCard />
+        <DetailCard {...dentista} key={dentista.matricula}/>
     </>
+
   )
 }
 

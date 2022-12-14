@@ -1,9 +1,11 @@
 import styles from "./Card.module.css";
 
+
 const Card = (props) => {
 
   const {matricula = "-", nome = "-", sobrenome = "-"} = props
 
+ 
   return (
     <>
       {/* //Na linha seguinte deverá ser feito um teste se a aplicação
@@ -18,7 +20,7 @@ const Card = (props) => {
                  
           {/* Na linha seguinte o link deverá utilizar a matricula, nome e sobrenome do dentista
           que vem da API */}
-          <a href={`/dentist/MatriculaDoDentista`}>
+          <a href={`/Details/${matricula}`}>
             <h5 className={`card-title ${styles.title}`}>
               {nome} {sobrenome}   
              </h5>
@@ -29,5 +31,7 @@ const Card = (props) => {
     </>
   );
 };
+
+
 
 export default Card;
