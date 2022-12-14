@@ -90,7 +90,7 @@ tr:nth-child(even) {
   color: white;
 }
 
-.dark h5{
+.dark > h5{
   color: white;
 }
 

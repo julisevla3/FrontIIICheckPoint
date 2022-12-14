@@ -13,11 +13,7 @@ import Detail from "./Routes/Detail";
 function App() {
   const { theme } = useContext(ThemeContext);
 
-
-
-
   return (
-
     
       <div className={theme}>
         <Navbar />
