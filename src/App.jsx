@@ -21,6 +21,7 @@ function App() {
         <ProviderLogin>
           <Routes>
             <Route path="/Login" element={<LoginForm />} />
+            <Route path="/" element={<LoginForm />} />
             <Route path="/Details/:matricula" element={<Detail />} />
             <Route path="/Home" element={<Home />} />
             <Route path="*" element={<h1>Not Found 404</h1>} />

@@ -1,8 +1,11 @@
 
 import ScheduleFormModal from "../Schedule/ScheduleFormModal";
 import styles from "./DetailCard.module.css";
+import { ThemeContext } from "../../providers/ThemeProvider";
+import { useContext } from "react";
 
 const DetailCard = (props) => {
+  const { theme, handleTheme } = useContext(ThemeContext);
   const {matricula = "-", nome = "-", sobrenome = "-", usuario = "-"} = props
   
     //Nesse useEffect, você vai fazer um fetch na api passando o 
@@ -13,7 +16,7 @@ const DetailCard = (props) => {
     //substituídas com as informações que vem da api
     <>
       <h1>Detail about Dentist {nome} </h1>
-      <section className="card col-sm-12 col-lg-6 container">
+      <section className={`card col-sm-12 col-lg-6 container ${theme === 'light' ? '' : styles.cardDark}`}>
         {/* //Na linha seguinte deverá ser feito um teste se a aplicação
         // está em dark mode e deverá utilizar o css correto */}
         <div
@@ -42,7 +45,7 @@ const DetailCard = (props) => {
               <button
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
-                className={`btn btn-light ${styles.button
+                className={`btn ${theme === 'light' ? 'btn-light' : 'btn-dark'}  ${styles.button
                   }`}
               >
                 Marcar consulta

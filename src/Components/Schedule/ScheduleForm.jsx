@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import styles from "./ScheduleForm.module.css";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const ScheduleForm = () => {
   const [dentista, setDentista] = useState({});
   const [paciente, setPaciente] = useState({});
   const [appointmentDate, setAppointmentDate] = useState("");
+  const { theme, handleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     getDentista();
@@ -71,7 +73,7 @@ const ScheduleForm = () => {
       {/* //Na linha seguinte deverá ser feito um teste se a aplicação
         // está em dark mode e deverá utilizar o css correto */}
       <div
-        className={`text-center container}`
+        className={`text-center container ${theme === 'light' ? '' : styles.cardDark}}`
         }
       >
         <form onSubmit={handleSubmit}>
@@ -123,7 +125,7 @@ const ScheduleForm = () => {
             {/* //Na linha seguinte deverá ser feito um teste se a aplicação
         // está em dark mode e deverá utilizar o css correto */}
             <button
-              className={`btn btn-light ${styles.button
+              className={`btn ${theme === 'light' ? 'btn-light' : 'btn-dark'} ${styles.button
                 }`}
               type="submit"
             >
