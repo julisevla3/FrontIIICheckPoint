@@ -1,37 +1,26 @@
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useContext } from "react";
+import { Outlet } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
-import { ThemeContext } from "./providers/ThemeProvider";
-import ProviderLogin from "./providers/ProviderLogin";
-import "./index.css";
-import Home from "./Routes/Home";
-import LoginForm from "./Components/Login/LoginForm";
-import Detail from "./Routes/Detail";
-
+import Navbar from "./Components/Navbar/Navbar";
+import { ThemeContext } from "./Providers/ProviderTheme"
+import { useContext } from "react";
 
 function App() {
-  // const location = useLocation();
   const { theme } = useContext(ThemeContext);
-  
+
   return (
-
-    <div className={theme}>
-      <BrowserRouter>
-        <ProviderLogin>
-          <Routes>
-            <Route path="/Login" element={<LoginForm />} />
-            <Route path="/Details/:matricula" element={<Detail />} />
-            <Route path="/Home" element={<Home />} />
-            <Route path="*" element={<h1>Not Found 404</h1>} />
-          </Routes>
-        </ProviderLogin>
-      </BrowserRouter>
-      <Footer />
-    </div>
-
+    <>
+      <div className={`
+              ${theme ? "dark" : ""}
+            `} >
+        <Navbar />
+        <main >
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
-
 }
 
 export default App;

@@ -1,15 +1,11 @@
-import LoginForm from "../Components/Login/LoginForm";
-import Navbar from "../Components/Navbar/Navbar";
+import LoginForm from "../Components/LoginForm/LoginForm";
 
-const Contact = () => {
+const Login = () => {
   return (
-    
     <>
-      <Navbar />
-      <h1>Login</h1>
       <LoginForm />
     </>
   );
 };
 
-export default Contact;
+export default Login;
