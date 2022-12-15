@@ -1,9 +1,9 @@
 import styles from "./Form.module.css";
-import api from "../services/api";
+import api from "../../services/api";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../providers/ProviderLogin"
-import Navbar from "../Components/Navbar";
+import { LoginContext } from "../../providers/ProviderLogin"
+import Navbar from "../Navbar/Navbar";
 
 
 

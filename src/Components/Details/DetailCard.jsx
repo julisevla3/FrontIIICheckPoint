@@ -1,5 +1,5 @@
 
-import ScheduleFormModal from "./ScheduleFormModal";
+import ScheduleFormModal from "../Schedule/ScheduleFormModal";
 import styles from "./DetailCard.module.css";
 
 const DetailCard = (props) => {

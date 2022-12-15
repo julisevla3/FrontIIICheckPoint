@@ -1,7 +1,7 @@
-import DetailCard from "../Components/DetailCard";
+import DetailCard from "../Components/Details/DetailCard";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Navbar from "../Components/Navbar";
+import Navbar from "../Components/Navbar/Navbar";
 
 const Detail = () => {
   const { matricula } = useParams();

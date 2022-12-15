@@ -1,13 +1,12 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useContext } from "react";
-import Footer from "./Components/Footer";
-
+import Footer from "./Components/Footer/Footer";
 import { ThemeContext } from "./providers/ThemeProvider";
 import ProviderLogin from "./providers/ProviderLogin";
 import "./index.css";
 import Home from "./Routes/Home";
-import LoginForm from "./Components/LoginForm";
+import LoginForm from "./Components/Login/LoginForm";
 import Detail from "./Routes/Detail";
 
 

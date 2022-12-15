@@ -1,5 +1,5 @@
 import styles from "./Card.module.css";
-import { ThemeContext } from "../providers/ThemeProvider";
+import { ThemeContext } from "../../providers/ThemeProvider";
 import { useContext } from "react";
 
 

@@ -1,5 +1,5 @@
-import LoginForm from "../Components/LoginForm";
-import Navbar from "../Components/Navbar";
+import LoginForm from "../Components/Login/LoginForm";
+import Navbar from "../Components/Navbar/Navbar";
 
 const Contact = () => {
   return (
