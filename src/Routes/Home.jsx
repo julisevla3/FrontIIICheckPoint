@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import Card from "../Components/Card";
+import Navbar from "../Components/Navbar";
 
 const Home = () => {
 
@@ -16,9 +17,9 @@ const Home = () => {
     }
     
   }, []);
-
   return (
     <>
+      <Navbar />
       <h1>Home</h1>
       <div className="card-grid container {theme}" >
       {dentista.length ? dentista.map((dentista) => (

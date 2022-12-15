@@ -1,6 +1,7 @@
 import DetailCard from "../Components/DetailCard";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Navbar from "../Components/Navbar";
 
 const Detail = () => {
   const { matricula } = useParams();
@@ -20,9 +21,9 @@ const Detail = () => {
     }
   }
 
-
   return (
     <>
+    <Navbar />
         <DetailCard {...dentista} key={dentista.matricula}/>
     </>
 

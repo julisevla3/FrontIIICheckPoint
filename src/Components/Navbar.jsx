@@ -2,15 +2,19 @@ import styles from "./Navbar.module.css";
 import { ThemeContext } from "../providers/ThemeProvider";
 import { LoginContext } from "../providers/ProviderLogin";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "../index.css";
 
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
   const { theme, handleTheme } = useContext(ThemeContext);
   const { isLogado, limparToken } = useContext(LoginContext);
 
-  function logout() {
-    return limparToken;
+  const logout = () => {
+    localStorage.clear();
+    navigate("/login")
   }
 
   return (
@@ -59,12 +63,24 @@ const Navbar = () => {
                 ao formulário de login
                 O botão de logout deverá ser testado darkmode
                 se sim, btn-dark, se não, btn-light */}
-               
+                  {  
+                  localStorage.getItem("token") ?
+                    <button
+                    onClick={() => logout()}
+                    className={`btn btn-${theme === 'light' ? "light" : "dark"}`}
+                    
+                    >Logout
+                    </button>
+                  :
                     <a className="nav-link" href="/login">
                       Login
-                    </a>
-                                   
-                                  </li>
+                    </a> 
+                    
+                                
+                }
+
+
+                </li>
                 <li className={`nav-item`}>
                   {/* Ao ser clicado, esse botão mudará a aplicação para dark mode ou light mode.
                  Lembre-se de usar um estado no contexto para fazer essa alteração.

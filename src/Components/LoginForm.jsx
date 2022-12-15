@@ -3,13 +3,14 @@ import api from "../services/api";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../providers/ProviderLogin"
+import Navbar from "../Components/Navbar";
 
 
 
 const LoginForm = () => {
   const [login, setLogin] = useState({ login: "", senha: "" })
   const navigate = useNavigate();
-  const { preencherTokenState } = useContext(LoginContext);
+  const { preencherTokenState} = useContext(LoginContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,13 +28,13 @@ const LoginForm = () => {
         var aux = await api.post("/auth", body)
         console.log(aux.data);
         localStorage.setItem("token", JSON.stringify(aux.data));
+        preencherTokenState({ token: aux.data.token, tipo: aux.data.tipo })
         navigate("/home");
       } else if (login.login.length < 5) {
         alert("usuario invalidos!")
       } else {
         alert("senha invalidos!")
       }
-      preencherTokenState({ token: aux.data.token, tipo: aux.data.tipo })
     } catch (error) {
       console.log(error.response.data);
     }
@@ -49,6 +50,7 @@ const LoginForm = () => {
 
   return (
     <>
+    <Navbar />
       <div
         className={`text-center card container ${styles.card}`}
       >
