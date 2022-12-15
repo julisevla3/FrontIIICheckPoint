@@ -4,16 +4,8 @@
 
 .navbarBrand::first-letter {
   color: #f21d1d;
-  
 }
 
-.bg_light {
-  background: #b8b8b8;
-}
-
-.bg_dark {
-  background: #2a2a2a;
-}
 .navBarLink {
   text-decoration: none;
   padding: 10px;
@@ -28,3 +20,10 @@
   height: 3rem;
 }
 
+.textDark{
+  color: white;
+}
+
+.textLight{
+  color: black
+}

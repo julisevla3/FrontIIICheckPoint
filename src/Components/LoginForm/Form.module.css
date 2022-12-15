@@ -1,0 +1,53 @@
+.boxFormLogin{
+	height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainDark{
+  background-color: #747474;
+}
+
+.card{
+  width: 23rem;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  height: 35%;
+  align-self: center;
+}
+
+.cardDark{
+  background-color: #31313196;
+}
+
+.inputSpacing+.inputSpacing{
+  margin: 1rem 0;
+}
+
+.boxInputPassword{
+  display: flex;
+  border: 1px solid #ced4da;
+  border-radius: .375rem;
+}
+
+.boxInputPasswordDark{
+  background-color: #fff;
+}
+
+.inputPassword{
+  border: none;
+}
+
+.icon{
+  align-self: center;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.alertErroForm{
+  width: 40%;
+  position: absolute;
+  margin-left: 30%;
+  margin-top: 2%;
+}
