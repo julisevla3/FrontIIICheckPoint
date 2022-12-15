@@ -6,24 +6,21 @@ export const LoginContext = createContext({});
 
 const LoginProvider = ({ children }) => {
     const [useToken, setToken] = useState({});
-
     const navigate = useNavigate();
     const location = useLocation();
-    
+
     const preencherTokenState = ({ token, tipo }) => {
         setToken({ ...useToken, token, tipo })
     }
-    
+
     const limparToken = () => {
-        setToken({token: "", tipo: ""})
-        localStorage.removeItem("token")
-        navigate("/Home")
+        setToken({ token: "", tipo: "" })
     }
 
     useEffect(() => {
         const token = JSON.parse(localStorage.getItem("token"))
-        if(token){
-            preencherTokenState({token: token.token, tipo: token.tipo})
+        if (token) {
+            preencherTokenState({ token: token.token, tipo: token.tipo })
             navigate(location.pathname)
         }
     }, [])
