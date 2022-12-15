@@ -6,15 +6,21 @@ export const LoginContext = createContext({});
 
 const LoginProvider = ({ children }) => {
     const [useToken, setToken] = useState({});
+    const [isLogado, setIsLogado] = useState(false);
+
     const navigate = useNavigate();
     const location = useLocation();
     
     const preencherTokenState = ({ token, tipo }) => {
         setToken({ ...useToken, token, tipo })
+        setIsLogado(true)
     }
     
     const limparToken = () => {
+        alert("Entrei aqui")
         setToken({token: "", tipo: ""})
+        setIsLogado(false)
+        navigate("/Home")
     }
 
     useEffect(() => {
@@ -30,7 +36,9 @@ const LoginProvider = ({ children }) => {
             value={{
                 useToken,
                 preencherTokenState,
-                limparToken
+                limparToken,
+                isLogado,
+                setIsLogado
             }}
         >
             {children}

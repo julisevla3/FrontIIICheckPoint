@@ -4,6 +4,7 @@ import { useContext } from "react";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import { ThemeContext } from "./providers/ThemeProvider";
+import ProviderLogin from "./providers/ProviderLogin";
 import "./index.css";
 import Home from "./Routes/Home";
 import LoginForm from "./Components/LoginForm";
@@ -16,7 +17,7 @@ function App() {
 
 
 
-//  const navigate = useNavigate();
+  //  const navigate = useNavigate();
 
 
   // useEffect(() => {
@@ -27,20 +28,21 @@ function App() {
   // // });
 
   return (
-    
-      <div className={theme}>
-        <Navbar />
-        <BrowserRouter>
+
+    <div className={theme}>
+      <Navbar />
+      <BrowserRouter>
+        <ProviderLogin>
           <Routes>
             <Route path="/Login" element={<LoginForm />} />
             <Route path="/Details/:matricula" element={<Detail />} />
-            <Route path="/teste" element={<Detail />} />
             <Route path="/Home" element={<Home />} />
-            <Route path="*" element={<h1>Not Found 404</h1>}/>
+            <Route path="*" element={<h1>Not Found 404</h1>} />
           </Routes>
-        </BrowserRouter>
-        <Footer />
-      </div>
+        </ProviderLogin>
+      </BrowserRouter>
+      <Footer />
+    </div>
 
   );
 
