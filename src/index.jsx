@@ -9,9 +9,9 @@ import Login from "./Routes/Login"
 import Detail from "./Routes/Detail"
 import Home from "./Routes/Home"
 import PageNotFound from "./Components/NotFound/PageNotFound"
-import LoginProvider, { LoginContext } from "./Providers/ProviderLogin";
+import LoginProvider, { LoginContext } from "./providers/ProviderLogin";
 import { useContext } from "react";
-import ThemeProvider from "./Providers/ProviderTheme";
+import ThemeProvider from "./providers/ProviderTheme";
 
 const PrivateRoute = ({ children }) => {
   const { useToken } = useContext(LoginContext);

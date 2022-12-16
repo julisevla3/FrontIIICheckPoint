@@ -1,5 +1,5 @@
 import ScheduleForm from '../ScheduleForm/ScheduleForm';
-import { ThemeContext } from "../../Providers/ProviderTheme"
+import { ThemeContext } from "../../providers/ProviderTheme"
 import styles from "./ScheduleFormModal.module.css";
 import { useContext } from 'react';
 

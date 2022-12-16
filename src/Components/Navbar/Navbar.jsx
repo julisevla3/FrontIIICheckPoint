@@ -1,8 +1,8 @@
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { LoginContext } from "../../Providers/ProviderLogin"
-import { ThemeContext } from "../../Providers/ProviderTheme";
+import { LoginContext } from "../../providers/ProviderLogin"
+import { ThemeContext } from "../../providers/ProviderTheme";
 import { useEffect } from "react";
 
 const Navbar = () => {

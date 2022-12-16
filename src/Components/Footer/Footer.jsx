@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styles from "./Footer.module.css";
-import { LoginContext } from "../../Providers/ProviderLogin"
-import { ThemeContext } from "../../Providers/ProviderTheme" 
+import { LoginContext } from "../../providers/ProviderLogin"
+import { ThemeContext } from "../../providers/ProviderTheme" 
 
 const Footer = () => {
   const { useToken } = useContext(LoginContext);

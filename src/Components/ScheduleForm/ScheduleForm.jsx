@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { LoginContext } from "../../Providers/ProviderLogin";
-import { ThemeContext } from "../../Providers/ProviderTheme"
-import api from "../../Services/api"
+import { LoginContext } from "../../providers/ProviderLogin";
+import { ThemeContext } from "../../providers/ProviderTheme"
+import api from "../../services/api"
 import styles from "./ScheduleForm.module.css";
 
 const ScheduleForm = () => {

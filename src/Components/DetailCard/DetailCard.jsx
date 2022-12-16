@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import ScheduleFormModal from "../ScheduleFormModal/ScheduleFormModal";
 import styles from "./DetailCard.module.css";
-import { LoginContext } from "../../Providers/ProviderLogin";
-import { ThemeContext } from "../../Providers/ProviderTheme"
+import { LoginContext } from "../../providers/ProviderLogin";
+import { ThemeContext } from "../../providers/ProviderTheme"
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import api from "../../Services/api";
+import api from "../../services/api";
 
 const DetailCard = () => {
   const { useToken } = useContext(LoginContext);

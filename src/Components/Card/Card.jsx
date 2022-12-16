@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
-import api from "../../Services/api"
+import api from "../../services/api"
 import { useState } from "react";
-import { LoginContext } from "../../Providers/ProviderLogin";
-import { ThemeContext } from "../../Providers/ProviderTheme"
+import { LoginContext } from "../../providers/ProviderLogin";
+import { ThemeContext } from "../../providers/ProviderTheme"
 import { useContext } from "react";
 
 const Card = () => {

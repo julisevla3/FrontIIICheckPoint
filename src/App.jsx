@@ -2,7 +2,7 @@
 import { Outlet } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
-import { ThemeContext } from "./Providers/ProviderTheme"
+import { ThemeContext } from "./providers/ProviderTheme"
 import { useContext } from "react";
 
 function App() {
